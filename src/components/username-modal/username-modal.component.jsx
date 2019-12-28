@@ -1,51 +1,71 @@
-import React, { useState} from 'react'
+import React, { Fragment, useState } from 'react'
+import {Text} from 'react-native'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
+import {SubmitButtonContainer, ButtonText} from './username-modal.styles'
+
 import FormInput from '../form-input/form-input.component'
-import {createStructuredSelector} from 'reselect'
-import {selectCurrentuser, selectUserId} from '../../redux/user/user.selectors'
+
+
 import { changeUserNameStart } from '../../redux/user/user.actions'
-import {UsernameModalConatiner} from './username-modal.styles'
-import CustomButton from '../custom-button/custom-button.component'
+import { selectCurrentuser, selectUserId } from '../../redux/user/user.selectors'
 
-const UserNameModal = ({userId, currentUsername, setModalDisplay, changeUserNameStart }) => {
 
-    // const [userName, setUserName] = useState("")
 
-    // const handleChange = (event) => {
-    //     const { value } = event.target;
-    //     setUserName(value)
-    // }
+const UserNameModal = ({ changeUserNameStart, currentUsername, userId }) => {
 
-    // const handleSubmit = event => {
-        
-    //     event.preventDefault();
+    const [userName, setUserName] = useState("")
 
-    //     let userInfo = {
-    //         oldUserName: `${currentUsername? currentUsername: "newUser"}`,
-    //         newUserName: userName,
-    //         userId,
-    //     }
+    const handleChange = (value) => {
+        setUserName(value)
+    }
 
-    //     changeUserNameStart(userInfo)
-    //     setUserName("")
-    //     if (setModalDisplay) {
-    //         setModalDisplay(false)
-    //     }
-    // }
+    const handleSubmit = () => {
+
+        let userInfo = {
+            oldUserName: `${currentUsername ? currentUsername : "newUser"}`,
+            newUserName: userName,
+            userId,
+        }
+        console.log(`running handle submit`)
+        console.log(userInfo)
+
+        changeUserNameStart(userInfo)
+        setUserName("")
+    }
 
     return (
-        <UsernameModalConatiner>
-        </UsernameModalConatiner>
+        <Fragment>
+            <FormInput
+                value={userName}
+                handleChange={handleChange}
+                placeholder="Username"
+                onSubmit={() => handleSubmit()}
+            />
+
+
+            <SubmitButtonContainer
+                onPress={() => handleSubmit()}
+            >
+                <ButtonText>Submit!</ButtonText>
+            </SubmitButtonContainer>
+
+            <Text>CurrentUserName: {currentUsername}</Text>
+            <Text>CurrentUserId: {userId}</Text>
+
+        </Fragment>
     )
 }
 
 const mapDispatchToProps = dispatch => ({
-    changeUserNameStart: (userInfo) => dispatch(changeUserNameStart(userInfo)),
+    changeUserNameStart: (userInfo) => dispatch(changeUserNameStart(userInfo))
 })
 
 const mapStateToProps = createStructuredSelector({
     currentUsername: selectCurrentuser,
-    userId: selectUserId
+    userId: selectUserId,
 })
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserNameModal)

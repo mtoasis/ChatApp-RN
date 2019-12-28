@@ -14,11 +14,11 @@ const Dashboard = ({ currentUser }) => {
 
     return (
         <Fragment>
+            <SocketHidden />
             <Header isLoading={currentUser} />
             {
                 currentUser ?
-                    <Fragment>
-                        <SocketHidden />
+                    <Fragment>                        
                         <MessageWindow />
                     </Fragment>
                     :

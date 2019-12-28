@@ -3,7 +3,8 @@ import { Text, TouchableOpacity, Modal } from 'react-native'
 
 import { ModalContainer, ModalHeaderContainer, ModalHeaderText } from './custom-modal.styles'
 import HeaderIcon from '../header-icon/header-icon.component'
-
+import UserNameModal from '../username-modal/username-modal.component'
+import UserList from '../user-list/user-list.component'
 
 const CustomModal = ({ changeUserNameStart, isUserNameModal, isGifModal, isUserListModal, size, title, ...props }) => {
 
@@ -31,6 +32,20 @@ const CustomModal = ({ changeUserNameStart, isUserNameModal, isGifModal, isUserL
                             />
                         </TouchableOpacity>
                     </ModalHeaderContainer>
+
+                    {
+                        isUserNameModal?
+                        <UserNameModal />
+                        :
+                        null
+                    }
+
+                    {
+                        isUserListModal?
+                        <UserList />
+                        :
+                        null
+                    }
 
                 </ModalContainer>
 

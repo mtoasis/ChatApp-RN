@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const IntroContainer = styled.View`
+export const IntroContainer = styled.KeyboardAvoidingView`
     flex:1;
     background-color:#4DA3E5;
     justify-content:center;

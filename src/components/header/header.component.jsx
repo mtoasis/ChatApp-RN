@@ -12,6 +12,7 @@ const Header = ({ isLoading }) => (
         <Fragment>
             <CustomModal
                 title='Change Username'
+                isUserNameModal
             >
                 <HeaderIcon
                     name='ios-settings'
@@ -36,6 +37,7 @@ const Header = ({ isLoading }) => (
             <CustomModal
                 title='Active Users'
                 size='large'
+                isUserListModal
             >
                 <HeaderIcon
                     name='ios-people'
