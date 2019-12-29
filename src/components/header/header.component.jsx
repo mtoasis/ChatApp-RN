@@ -25,6 +25,7 @@ const Header = ({ isLoading }) => (
             <CustomModal
                 title='Fun Gifs!'
                 size='large'
+                isGifModal
             >
                 <HeaderIcon
                     name='gif'

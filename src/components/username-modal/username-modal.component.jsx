@@ -13,7 +13,7 @@ import { selectCurrentuser, selectUserId } from '../../redux/user/user.selectors
 
 
 
-const UserNameModal = ({ changeUserNameStart, currentUsername, userId }) => {
+const UserNameModal = ({ changeUserNameStart, currentUsername, userId, setModalDisplay }) => {
 
     const [userName, setUserName] = useState("")
 
@@ -33,6 +33,10 @@ const UserNameModal = ({ changeUserNameStart, currentUsername, userId }) => {
 
         changeUserNameStart(userInfo)
         setUserName("")
+
+        if(currentUsername){
+            setModalDisplay(false)
+        }
     }
 
     return (

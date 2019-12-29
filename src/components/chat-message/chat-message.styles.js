@@ -50,6 +50,7 @@ export const SystemMessageContainer = styled.Text`
 export const ImageContainer = styled.Image`
         width:100px;
         height:100px;
+        margin:8px;
 `
 
 

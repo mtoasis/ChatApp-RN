@@ -1,5 +1,5 @@
-import React from 'react'
-import { View } from 'react-native'
+import React, {Fragment} from 'react'
+// import { View, YellowBox } from 'react-native'
 import { socket } from '../../socket-io/socket-io.utils'
 import { initializeUserIdStart, userListUpdateStart } from '../../redux/user/user.actions'
 import { connect } from 'react-redux'
@@ -50,9 +50,7 @@ class SocketHidden extends React.Component {
 
     render() {
         return (
-            <View>
-
-            </View>
+            <Fragment />
         )
     }
 }

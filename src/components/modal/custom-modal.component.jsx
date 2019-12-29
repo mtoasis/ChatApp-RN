@@ -1,10 +1,11 @@
 import React, { useState, Fragment } from 'react'
-import { Text, TouchableOpacity, Modal } from 'react-native'
+import { TouchableOpacity, Modal } from 'react-native'
 
 import { ModalContainer, ModalHeaderContainer, ModalHeaderText } from './custom-modal.styles'
 import HeaderIcon from '../header-icon/header-icon.component'
 import UserNameModal from '../username-modal/username-modal.component'
 import UserList from '../user-list/user-list.component'
+import GifModal from '../gif-modal/gif-modal.component'
 
 const CustomModal = ({ changeUserNameStart, isUserNameModal, isGifModal, isUserListModal, size, title, ...props }) => {
 
@@ -24,7 +25,7 @@ const CustomModal = ({ changeUserNameStart, isUserNameModal, isGifModal, isUserL
                         <ModalHeaderText>
                             {title}
                         </ModalHeaderText>
-                        
+
                         <TouchableOpacity onPress={() => setModalDisplay(false)}>
                             <HeaderIcon
                                 name='ios-close'
@@ -34,17 +35,24 @@ const CustomModal = ({ changeUserNameStart, isUserNameModal, isGifModal, isUserL
                     </ModalHeaderContainer>
 
                     {
-                        isUserNameModal?
-                        <UserNameModal />
-                        :
-                        null
+                        isUserNameModal ?
+                            <UserNameModal setModalDisplay={setModalDisplay} />
+                            :
+                            null
                     }
 
                     {
-                        isUserListModal?
-                        <UserList />
-                        :
-                        null
+                        isUserListModal ?
+                            <UserList />
+                            :
+                            null
+                    }
+
+                    {
+                        isGifModal ?
+                            <GifModal setModalDisplay={setModalDisplay}/>
+                            :
+                            null
                     }
 
                 </ModalContainer>
