@@ -1,6 +1,6 @@
 ﻿# ChatApp-RN
 
-### About this project: This is a mobile application version of chatApp [https://github.com/mtoasis/ChatApp-MRJ(https://github.com/mtoasis/ChatApp-MRJ)
+### About this project: This is a mobile application version of chatApp (https://github.com/mtoasis/ChatApp-MRJ)
 
 ### React-native with Expo CLI was mainly used. 
 
